@@ -1,0 +1,16 @@
+{
+  "name": "gpd",
+  "packageManager": "yarn@3.5.1",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "client": "yarn workspace client",
+    "server": "yarn workspace server"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.2"
+  }
+}
