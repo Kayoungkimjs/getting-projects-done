@@ -6,6 +6,8 @@
 !.yarn/versions
 !.yarn/cache
 
+graphql/**
+
 node_modules
 dist
 build
