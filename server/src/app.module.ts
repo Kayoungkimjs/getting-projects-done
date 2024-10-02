@@ -18,7 +18,7 @@ import { rootResolvers } from './resolver';
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      autoSchemaFile: { path: '../grapql/schema.graphql' },
+      autoSchemaFile: { path: '../graphql/schema.graphql' },
     }),
   ],
 
