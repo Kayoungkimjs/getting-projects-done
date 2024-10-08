@@ -2,14 +2,30 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type UserSchema {
+  id: Float!
+  userId: String!
+  password: String!
+  email: String
+  createdAt: String
+  updatedAt: String
+}
+
+type LoginSchema {
+  userId: String!
+  accessToken: String!
+  username: String
+  email: String
+}
+
 type ProjectSchema {
   id: Float!
   categoryId: Float!
-  categoryKr: String!
-  categoryEn: String!
-  endpoint: String!
-  testType: String!
-  testName: String!
+  categoryKr: String
+  categoryEn: String
+  endpoint: String
+  testType: String
+  testName: String
   criteria: String!
   notes: String
   result: Float
@@ -17,19 +33,45 @@ type ProjectSchema {
   priority: Float
 }
 
+type GetAllProjectsResponseSchema {
+  project: [ProjectSchema!]!
+  listLength: Float
+}
+
+type GetCategoryNameAndIdResponeSchema {
+  categoryEn: String!
+  categoryId: Float!
+}
+
 type GetProjectByCategoryResponseSchema {
   project: [ProjectSchema!]!
   listLength: Float
 }
 
+input UserInputSchema {
+  id: Float!
+  userId: String!
+  password: String!
+  email: String
+  createdAt: String
+  updatedAt: String
+}
+
+input LoginInputSchema {
+  userId: String!
+  accessToken: String!
+  username: String
+  email: String
+}
+
 input ProjectInputSchema {
   id: Float!
   categoryId: Float!
-  categoryKr: String!
-  categoryEn: String!
-  endpoint: String!
-  testType: String!
-  testName: String!
+  categoryKr: String
+  categoryEn: String
+  endpoint: String
+  testType: String
+  testName: String
   criteria: String!
   notes: String
   result: Float
@@ -38,5 +80,17 @@ input ProjectInputSchema {
 }
 
 type Query {
+  getAllProjects: GetAllProjectsResponseSchema!
+  getCategoryNameAndId: [GetCategoryNameAndIdResponeSchema!]!
   getProjectByCategory(categoryId: Float!): GetProjectByCategoryResponseSchema!
+  getUserById(userId: String!): UserSchema!
+}
+
+type Mutation {
+  login(input: AuthInputSchema!): LoginSchema!
+}
+
+input AuthInputSchema {
+  userId: String!
+  password: String!
 }
