@@ -10,33 +10,33 @@ export class ProjectSchema implements Project {
   @Field()
   categoryId: number;
 
-  @Field()
-  categoryKr: string;
+  @Field({ nullable: true })
+  categoryKr?: string;
 
-  @Field()
-  categoryEn: string;
+  @Field({ nullable: true })
+  categoryEn?: string;
 
-  @Field()
-  endpoint: string;
+  @Field({ nullable: true })
+  endpoint?: string;
 
-  @Field()
-  testType: string;
+  @Field({ nullable: true })
+  testType?: string;
 
-  @Field()
-  testName: string;
+  @Field({ nullable: true })
+  testName?: string;
 
   @Field()
   criteria: string;
 
   @Field({ nullable: true })
-  notes: string;
+  notes?: string;
 
   @Field({ nullable: true })
-  result: number;
+  result?: number;
 
   @Field({ nullable: true })
-  status: number;
+  status?: number;
 
   @Field({ nullable: true })
-  priority: number;
+  priority?: number;
 }
