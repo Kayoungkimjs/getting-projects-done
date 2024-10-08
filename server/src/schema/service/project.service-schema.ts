@@ -1,34 +1,41 @@
 import { ArgsType, Field, ObjectType } from '@nestjs/graphql';
 import { ProjectSchema } from '../model/project.schema';
 
-// @ArgsType()
-// export class ListProjectsRequestSchema {
-//   @Field(() => ListOptionSchema, { nullable: true })
-//   listOption?: ListOption;
-// }
+@ArgsType()
+export class GetAllProjectsSchema {}
 
-// @ObjectType()
-// export class ListProjectsResponseSchema {
-//   @Field(() => [ProjectSchema])
-//   projectList: Project[];
+@ObjectType()
+export class GetAllProjectsResponseSchema {
+  @Field(() => [ProjectSchema])
+  project: ProjectSchema[];
 
-//   @Field({ nullable: true })
-//   listLength?: number;
-// }
+  @Field({ nullable: true })
+  listLength?: number;
+}
 
-// 요청 스키마
+@ArgsType()
+export class GetCategoryNameAndIdSchema {}
+
+@ObjectType()
+export class GetCategoryNameAndIdResponeSchema {
+  @Field(() => String)
+  categoryEn: string;
+
+  @Field(() => Number)
+  categoryId: number;
+}
+
 @ArgsType()
 export class GetProjectByCategorySchema {
   @Field()
   categoryId: number;
 }
 
-// 응답 스키마
 @ObjectType()
 export class GetProjectByCategoryResponseSchema {
   @Field(() => [ProjectSchema])
-  project: ProjectSchema[]; // 카테고리에 해당하는 프로젝트 배열
+  project: ProjectSchema[];
 
   @Field({ nullable: true })
-  listLength?: number; // 프로젝트 목록의 길이 (선택 사항)
+  listLength?: number;
 }

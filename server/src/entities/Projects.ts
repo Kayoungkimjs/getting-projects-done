@@ -8,33 +8,33 @@ export class Project {
   @Column('integer')
   categoryId: number;
 
-  @Column('text')
+  @Column({ nullable: true })
   categoryKr: string;
 
-  @Column('text')
+  @Column({ nullable: true })
   categoryEn: string;
 
-  @Column('text')
+  @Column({ nullable: true })
   endpoint: string;
 
-  @Column('text')
+  @Column({ nullable: true })
   testType: string;
 
-  @Column('text')
+  @Column({ nullable: true })
   testName: string;
 
   @Column('text')
   criteria: string;
 
-  @Column('text')
+  @Column({ nullable: true })
   notes: string;
 
-  @Column('integer')
+  @Column({ nullable: true })
   result: number;
 
-  @Column('integer')
+  @Column({ nullable: true })
   status: number;
 
-  @Column('integer')
+  @Column({ nullable: true })
   priority: number;
 }
