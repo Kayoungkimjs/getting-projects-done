@@ -2,6 +2,14 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type RegisterReponse {
+  id: Float!
+  projectName: String!
+  description: String
+  createdAt: String
+  user: UserSchema!
+}
+
 type UserSchema {
   id: Float!
   userId: String!
@@ -9,6 +17,7 @@ type UserSchema {
   email: String
   createdAt: String
   updatedAt: String
+  register: [RegisterReponse!]!
 }
 
 type LoginSchema {
@@ -48,6 +57,14 @@ type GetProjectByCategoryResponseSchema {
   listLength: Float
 }
 
+input RegisterInputSchema {
+  id: Float!
+  projectName: String!
+  description: String
+  createdAt: String
+  user: UserInputSchema!
+}
+
 input UserInputSchema {
   id: Float!
   userId: String!
@@ -55,6 +72,7 @@ input UserInputSchema {
   email: String
   createdAt: String
   updatedAt: String
+  register: [RegisterInputSchema!]!
 }
 
 input LoginInputSchema {
@@ -87,7 +105,13 @@ type Query {
 }
 
 type Mutation {
+  registerProject(input: CreateProjectSchema!): RegisterReponse!
   login(input: AuthInputSchema!): LoginSchema!
+}
+
+input CreateProjectSchema {
+  projectName: String!
+  description: String
 }
 
 input AuthInputSchema {
