@@ -36,7 +36,7 @@ type ProjectSchema {
   endpoint: String
   testType: String
   testName: String
-  criteria: String!
+  criteria: String
   notes: String
   result: Float
   status: Float
@@ -56,6 +56,10 @@ type GetCategoryNameAndIdResponeSchema {
 type GetProjectByCategoryResponseSchema {
   project: [ProjectSchema!]!
   listLength: Float
+}
+
+type GetRegistersByUserIdResponseSchema {
+  registers: [RegisterResponse!]
 }
 
 input RegisterInputSchema {
@@ -92,7 +96,7 @@ input ProjectInputSchema {
   endpoint: String
   testType: String
   testName: String
-  criteria: String!
+  criteria: String
   notes: String
   result: Float
   status: Float
@@ -100,9 +104,10 @@ input ProjectInputSchema {
 }
 
 type Query {
+  getRegistersByUserId: GetRegistersByUserIdResponseSchema!
   getAllProjects: GetAllProjectsResponseSchema!
   getCategoryNameAndId: [GetCategoryNameAndIdResponeSchema!]!
-  getProjectByCategory(categoryId: Float!): GetProjectByCategoryResponseSchema!
+  getProjectByCategory(categoryId: [Float!]!): GetProjectByCategoryResponseSchema!
   getUserById(userId: String!): UserSchema!
 }
 

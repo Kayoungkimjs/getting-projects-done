@@ -1,4 +1,4 @@
-query GetProjectByCategory($categoryId: Float!) {
+query GetProjectByCategory($categoryId: [Float!]!) {
   getProjectByCategory(categoryId: $categoryId) {
     project {
       id
