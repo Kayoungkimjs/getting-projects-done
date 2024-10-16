@@ -1,3 +1,5 @@
+import { Register } from './register';
+
 export interface User {
   id: number;
   userId: string;
@@ -5,4 +7,5 @@ export interface User {
   email?: string;
   createdAt?: string;
   updatedAt?: string;
+  register: Register[];
 }
