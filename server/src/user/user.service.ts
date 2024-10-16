@@ -10,20 +10,6 @@ export class UserService {
     private userRepo: UserRepo,
   ) {}
 
-  // async createUser(
-  //   userId: string,
-  //   password: string,
-  //   email: string,
-  // ): Promise<User> {
-  //   const hashedPassword = await bcrypt.hash(password, 10);
-  //   const user = this.userRepo.create({
-  //     userId,
-  //     password: hashedPassword,
-  //     email,
-  //   });
-  //   return await this.userRepo.save(user);
-  // }
-
   async getUserById(userId: string): Promise<User> {
     const user = await this.userRepo.findOne({ where: { userId } });
     if (!user) {
@@ -31,4 +17,8 @@ export class UserService {
     }
     return user;
   }
+
+  // async getCurrentUser(userId: string): Promise<User | null> {
+  //   return this.userRepo.findOne({ where: { userId } }); // ID로 사용자 검색
+  // }
 }

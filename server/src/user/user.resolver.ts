@@ -11,4 +11,11 @@ export class UserResolver {
   async getUserById(@Args('userId') userId: string): Promise<UserSchema> {
     return this.userService.getUserById(userId);
   }
+
+  // @Query(() => User, { nullable: true })
+  // async currentUser(
+  //   @Context() context: { req: { user: User } },
+  // ): Promise<User> {
+  //   return context.req.user; // 로그인된 유저 정보 반환
+  // }
 }

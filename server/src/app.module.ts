@@ -3,7 +3,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
-import { User } from './entities/Users';
 import { UserResolver } from './user/user.resolver';
 import { UserModule } from './user/user.module';
 import { AuthResolver } from './auth/auth.resolver';
@@ -11,27 +10,33 @@ import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { ProjectModule } from './project/project.module';
 import { ProjectResolver } from './project/project.resolver';
+import { RegisterModule } from './Register/register.module';
+import { RegisterResolver } from './Register/register.resolver';
 
 @Module({
   imports: [
+    RegisterModule,
     ProjectModule,
     UserModule,
     AuthModule,
     TypeOrmModule.forRoot({
       type: 'sqlite',
-      database: 'gpd.sqlite',
-      entities: [User],
+      database: '/Users/kim_kayoung/Desktop/project/gpd/server/gpd.db',
       autoLoadEntities: true,
-      synchronize: true, // 개발 중일 때만 true로 설정, 프로덕션에서는 false로 설정
+      synchronize: true, //프로덕션시 false
       namingStrategy: new SnakeNamingStrategy(),
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: { path: '../graphql/schema.graphql' },
+      context: ({ req }: any) => {
+        const user = req.user;
+        return { user };
+      },
     }),
     ConfigModule.forRoot(),
   ],
 
-  providers: [AuthResolver, ProjectResolver, UserResolver],
+  providers: [RegisterResolver, AuthResolver, ProjectResolver, UserResolver],
 })
 export class AppModule {}
