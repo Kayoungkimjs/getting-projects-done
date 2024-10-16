@@ -15,7 +15,11 @@ export class AuthService {
     private configService: ConfigService,
   ) {}
 
-  async validateUser(userId: string, password: string): Promise<User | null> {
+  async getUserById(userId: string): Promise<User | null> {
+    return this.userService.getUserById(userId); // UserService에서 가져오는 방식
+  }
+
+  async validateUser(userId: string, password?: string): Promise<User | null> {
     const user = await this.userService.getUserById(userId);
     console.log('Fetched user:', user); // 유저 정보 로그
     console.log(
@@ -24,13 +28,12 @@ export class AuthService {
       'with hashed:',
       user?.password,
     ); // 비밀번호 비교 로그
-    if (user && (await bcrypt.compare(password, user.password))) {
-      console.log('Password matches!');
-      return user; // 비밀번호가 일치할 경우 사용자 반환
-    } else {
-      console.log('Password does not match');
-      return null;
+    // 비밀번호가 제공되었을 때만 비교
+    if (password && !(await bcrypt.compare(password, user.password))) {
+      return null; // 비밀번호가 일치하지 않음
     }
+
+    return user; // 유저 반환
   }
 
   async login(authCredentials: AuthCredentials): Promise<LoginResponse> {
@@ -46,7 +49,7 @@ export class AuthService {
     const payload = { userId: user.userId, sub: user.id }; // JWT Payload 설정
     const secretKey = this.configService.get<string>('JWT_SECRET');
     const accessToken = this.jwtService.sign(payload, { secret: secretKey }); // JWT 토큰 생성
-
+    console.log('Generated access token:', accessToken); // 생성된 토큰 로그
     return {
       userId: user.userId,
       accessToken: accessToken,
