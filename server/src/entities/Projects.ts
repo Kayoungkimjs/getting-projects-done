@@ -23,7 +23,7 @@ export class Project {
   @Column({ nullable: true })
   testName: string;
 
-  @Column('text')
+  @Column({ nullable: true })
   criteria: string;
 
   @Column({ nullable: true })

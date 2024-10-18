@@ -6,7 +6,7 @@ export interface Project {
   endpoint?: string;
   testType?: string;
   testName?: string;
-  criteria: string;
+  criteria?: string;
   result?: number;
   status?: number;
   priority?: number;

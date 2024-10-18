@@ -25,8 +25,8 @@ export class ProjectSchema implements Project {
   @Field({ nullable: true })
   testName?: string;
 
-  @Field()
-  criteria: string;
+  @Field({ nullable: true })
+  criteria?: string;
 
   @Field({ nullable: true })
   notes?: string;

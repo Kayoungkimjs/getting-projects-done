@@ -2,9 +2,11 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { Register } from './Register';
 
 @Entity('users')
 export class User {
@@ -18,17 +20,20 @@ export class User {
   password: string;
 
   @Column({ nullable: true })
-  email: string;
+  email?: string;
 
   @CreateDateColumn({
     default: () => 'CURRENT_TIMESTAMP',
     nullable: true,
   })
-  createdAt: string;
+  createdAt?: string;
 
   @UpdateDateColumn({
     default: () => 'CURRENT_TIMESTAMP',
     nullable: true,
   })
-  updatedAt: string;
+  updatedAt?: string;
+
+  @OneToMany(() => Register, (register) => register.user)
+  register: Register[];
 }

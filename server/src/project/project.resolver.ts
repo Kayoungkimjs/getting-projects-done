@@ -22,7 +22,7 @@ export class ProjectResolver {
 
   @Query(() => [GetCategoryNameAndIdResponeSchema])
   async getCategoryNameAndId(): Promise<GetCategoryNameAndIdResponeSchema[]> {
-    return this.projectService.getCategoryNameAndId(); // 서비스에서 호출
+    return this.projectService.getCategoryNameAndId();
   }
 
   @Query(() => GetProjectByCategoryResponseSchema)
