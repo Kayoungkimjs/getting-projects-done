@@ -27,8 +27,8 @@ export class GetCategoryNameAndIdResponeSchema {
 
 @ArgsType()
 export class GetProjectByCategorySchema {
-  @Field()
-  categoryId: number;
+  @Field(() => [Number])
+  categoryId: number[];
 }
 
 @ObjectType()
