@@ -39,3 +39,15 @@ export class GetProjectByCategoryResponseSchema {
   @Field({ nullable: true })
   listLength?: number;
 }
+
+@ArgsType()
+export class GetProjectByIdSchema {
+  @Field(() => Number)
+  id: number;
+}
+
+@ObjectType()
+export class GetProjectByIdResponseSchema {
+  @Field(() => [ProjectSchema])
+  project: ProjectSchema[];
+}

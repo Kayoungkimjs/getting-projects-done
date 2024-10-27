@@ -4,6 +4,7 @@ import { Project } from 'src/entities/Projects';
 import { ProjectRepo } from 'src/project/project.repo';
 import { ProjectSchema } from 'src/schema/model/project.schema';
 import { GetCategoryNameAndIdResponeSchema } from 'src/schema/service/project.service-schema';
+import { In } from 'typeorm';
 
 @Injectable()
 export class ProjectService {
@@ -30,11 +31,15 @@ export class ProjectService {
     }));
   }
 
-  async getProjectByCategory(categoryId: number): Promise<Project[]> {
-    return await this.projectRepo.find({
-      where: {
-        categoryId,
-      },
+  async getProjectByCategory(categoryId: number[]): Promise<Project[]> {
+    return this.projectRepo.find({
+      where: { categoryId: In(categoryId) },
+    });
+  }
+
+  async getProjectById(id: number): Promise<Project[]> {
+    return this.projectRepo.find({
+      where: { id: id },
     });
   }
 }

@@ -58,6 +58,10 @@ type GetProjectByCategoryResponseSchema {
   listLength: Float
 }
 
+type GetProjectByIdResponseSchema {
+  project: [ProjectSchema!]!
+}
+
 type GetRegistersByUserIdResponseSchema {
   registers: [RegisterResponse!]
 }
@@ -108,6 +112,7 @@ type Query {
   getAllProjects: GetAllProjectsResponseSchema!
   getCategoryNameAndId: [GetCategoryNameAndIdResponeSchema!]!
   getProjectByCategory(categoryId: [Float!]!): GetProjectByCategoryResponseSchema!
+  getProjectById(id: Float!): GetProjectByIdResponseSchema!
   getUserById(userId: String!): UserSchema!
 }
 

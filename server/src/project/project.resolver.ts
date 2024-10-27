@@ -4,6 +4,8 @@ import {
   GetCategoryNameAndIdResponeSchema,
   GetProjectByCategoryResponseSchema,
   GetProjectByCategorySchema,
+  GetProjectByIdResponseSchema,
+  GetProjectByIdSchema,
 } from 'src/schema/service/project.service-schema';
 import { ProjectService } from './project.service';
 
@@ -36,6 +38,19 @@ export class ProjectResolver {
     return {
       project: projects,
       listLength: projects.length,
+    };
+  }
+
+  @Query(() => GetProjectByIdResponseSchema)
+  async getProjectById(
+    @Args() args: GetProjectByIdSchema,
+  ): Promise<GetProjectByIdResponseSchema> {
+    const { id } = args;
+
+    const projects = await this.projectService.getProjectById(id);
+
+    return {
+      project: projects,
     };
   }
 }
