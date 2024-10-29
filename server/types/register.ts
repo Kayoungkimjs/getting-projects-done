@@ -1,7 +1,7 @@
 import { User } from './user';
 
 export interface Register {
-  id: number;
+  registerId: number;
   projectName?: string;
   description?: string;
   categoryId?: string[];

@@ -3,7 +3,7 @@
 # ------------------------------------------------------
 
 type RegisterResponse {
-  id: Float!
+  registerId: Float!
   projectName: String
   description: String
   categoryId: [String!]
@@ -12,7 +12,7 @@ type RegisterResponse {
 }
 
 type UserSchema {
-  id: Float!
+  uid: Float!
   userId: String!
   password: String!
   email: String
@@ -29,7 +29,7 @@ type LoginSchema {
 }
 
 type ProjectSchema {
-  id: Float!
+  projectId: Float!
   categoryId: Float!
   categoryKr: String
   categoryEn: String
@@ -67,7 +67,7 @@ type GetRegistersByUserIdResponseSchema {
 }
 
 input RegisterInputSchema {
-  id: Float!
+  registerId: Float!
   projectName: String
   description: String
   categoryId: [String!]
@@ -76,7 +76,7 @@ input RegisterInputSchema {
 }
 
 input UserInputSchema {
-  id: Float!
+  uid: Float!
   userId: String!
   password: String!
   email: String
@@ -93,7 +93,7 @@ input LoginInputSchema {
 }
 
 input ProjectInputSchema {
-  id: Float!
+  projectId: Float!
   categoryId: Float!
   categoryKr: String
   categoryEn: String

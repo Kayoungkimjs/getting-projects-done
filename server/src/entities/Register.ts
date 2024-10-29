@@ -8,10 +8,10 @@ import {
 } from 'typeorm';
 import { User } from './Users';
 
-@Entity('Register')
+@Entity('REGISTER')
 export class Register {
   @PrimaryGeneratedColumn()
-  id: number;
+  registerId: number;
 
   @Column({ nullable: true })
   projectName?: string;

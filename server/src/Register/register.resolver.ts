@@ -28,7 +28,7 @@ export class RegisterResolver {
     console.log('UserId from context:', userId);
 
     const user = await this.userService.getUserById(userId);
-    if (!user || !user.id) {
+    if (!user || !user.uid) {
       throw new Error('User not found or user id is null');
     }
     return this.registerService.registerProject(input, user);

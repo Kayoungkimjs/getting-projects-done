@@ -39,7 +39,7 @@ export class ProjectService {
 
   async getProjectById(id: number): Promise<Project[]> {
     return this.projectRepo.find({
-      where: { id: id },
+      where: { projectId: id },
     });
   }
 }

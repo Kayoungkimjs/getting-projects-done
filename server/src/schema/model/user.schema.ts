@@ -7,7 +7,7 @@ import { RegisterResponse } from './register.schema';
 @InputType('UserInputSchema')
 export class UserSchema implements User {
   @Field()
-  id: number;
+  uid: number;
 
   @Field()
   userId: string;

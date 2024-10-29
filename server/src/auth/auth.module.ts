@@ -15,7 +15,7 @@ import { GqlAuthGuard } from './auth.guard';
     PassportModule.register({ defaultStrategy: 'jwt', session: false }),
     JwtModule.register({
       secret: process.env.JWT_SECRET,
-      signOptions: { expiresIn: '1h' },
+      // signOptions: { expiresIn: '1h' },
     }),
     ConfigModule,
   ],

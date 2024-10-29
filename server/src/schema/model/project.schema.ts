@@ -5,7 +5,7 @@ import { Project } from 'types/project';
 @InputType('ProjectInputSchema')
 export class ProjectSchema implements Project {
   @Field()
-  id: number;
+  projectId: number;
 
   @Field()
   categoryId: number;

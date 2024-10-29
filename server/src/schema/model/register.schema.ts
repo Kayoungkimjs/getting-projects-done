@@ -6,7 +6,7 @@ import { UserSchema } from './user.schema';
 @InputType('RegisterInputSchema')
 export class RegisterResponse implements Register {
   @Field()
-  id: number;
+  registerId: number;
 
   @Field({ nullable: true })
   projectName?: string;

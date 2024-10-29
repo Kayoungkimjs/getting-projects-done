@@ -1,5 +1,5 @@
 export interface Project {
-  id: number;
+  projectId: number;
   categoryId: number;
   categoryKr?: string;
   categoryEn?: string;

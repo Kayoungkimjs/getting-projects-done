@@ -46,7 +46,7 @@ export class AuthService {
       throw new UnauthorizedException('Invalid credentials');
     }
 
-    const payload = { userId: user.userId, sub: user.id }; // JWT Payload 설정
+    const payload = { userId: user.userId, sub: user.uid }; // JWT Payload 설정
     const secretKey = this.configService.get<string>('JWT_SECRET');
     const accessToken = this.jwtService.sign(payload, { secret: secretKey }); // JWT 토큰 생성
     console.log('Generated access token:', accessToken); // 생성된 토큰 로그

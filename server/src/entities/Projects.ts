@@ -1,9 +1,9 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity('project')
+@Entity('PROJECT')
 export class Project {
   @PrimaryGeneratedColumn()
-  id: number;
+  projectId: number;
 
   @Column('integer')
   categoryId: number;
