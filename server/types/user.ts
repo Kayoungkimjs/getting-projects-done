@@ -1,7 +1,7 @@
 import { Register } from './register';
 
 export interface User {
-  id: number;
+  uid: number;
   userId: string;
   password: string;
   email?: string;
