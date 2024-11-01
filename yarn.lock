@@ -5738,6 +5738,7 @@ __metadata:
     globals: ^15.9.0
     react: ^18.3.1
     react-dom: ^18.3.1
+    react-hook-form: ^7.53.1
     react-router-dom: ^6.26.2
     styled-components: ^6.1.13
     typescript: ^5.5.3
@@ -10640,6 +10641,15 @@ __metadata:
   peerDependencies:
     react: ^18.3.1
   checksum: 298954ecd8f78288dcaece05e88b570014d8f6dce5db6f66e6ee91448debeb59dcd31561dddb354eee47e6c1bb234669459060deb238ed0213497146e555a0b9
+  languageName: node
+  linkType: hard
+
+"react-hook-form@npm:^7.53.1":
+  version: 7.53.1
+  resolution: "react-hook-form@npm:7.53.1"
+  peerDependencies:
+    react: ^16.8.0 || ^17 || ^18 || ^19
+  checksum: 6c0cb09335fda48dd533b5d144c9a7a5692de1d8af0ac4f1fffedefc9ccfb995e44f9213dd2c13a72b7b7cb46c55ab05dfed884c5e64e174b137ecc658da04b5
   languageName: node
   linkType: hard
 
