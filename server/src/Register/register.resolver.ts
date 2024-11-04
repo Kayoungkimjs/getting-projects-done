@@ -1,6 +1,5 @@
 import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { Register } from 'src/entities/Register';
-import { RegisterService } from './register.service';
 import {
   CreateProjectSchema,
   RegisterResponse,
@@ -10,6 +9,7 @@ import { GqlAuthGuard } from 'src/auth/auth.guard';
 import { UserService } from 'src/user/user.service';
 import { GetRegistersByUserIdResponseSchema } from 'src/schema/service/register.service-schema';
 import { User } from 'src/entities/Users';
+import { RegisterService } from './register.service';
 
 @Resolver(() => Register)
 export class RegisterResolver {

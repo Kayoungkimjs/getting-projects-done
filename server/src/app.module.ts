@@ -10,8 +10,8 @@ import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { ProjectModule } from './project/project.module';
 import { ProjectResolver } from './project/project.resolver';
-import { RegisterModule } from './Register/register.module';
-import { RegisterResolver } from './Register/register.resolver';
+import { RegisterModule } from './register/register.module';
+import { RegisterResolver } from './register/register.resolver';
 
 @Module({
   imports: [
