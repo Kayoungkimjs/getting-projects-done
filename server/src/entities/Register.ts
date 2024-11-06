@@ -29,6 +29,6 @@ export class Register {
   createdAt?: string;
 
   @ManyToOne(() => User, (user) => user.register)
-  @JoinColumn({ name: 'user_id', referencedColumnName: 'userId' })
+  @JoinColumn({ name: 'uid', referencedColumnName: 'uid' })
   user: User;
 }

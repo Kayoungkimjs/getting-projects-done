@@ -25,16 +25,4 @@ export class Project {
 
   @Column({ nullable: true })
   criteria: string;
-
-  @Column({ nullable: true })
-  notes: string;
-
-  @Column({ nullable: true })
-  result: number;
-
-  @Column({ nullable: true })
-  status: number;
-
-  @Column({ nullable: true })
-  priority: number;
 }

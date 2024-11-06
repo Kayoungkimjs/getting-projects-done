@@ -1,7 +1,8 @@
 import { Field, InputType, ObjectType } from '@nestjs/graphql';
 
-import { User } from 'types/user';
+import { User } from 'src/types/user';
 import { RegisterResponse } from './register.schema';
+import { UserProjectSchema } from './userProject.schema';
 
 @ObjectType('UserSchema')
 @InputType('UserInputSchema')
@@ -26,4 +27,7 @@ export class UserSchema implements User {
 
   @Field(() => [RegisterResponse])
   register: RegisterResponse[];
+
+  @Field(() => [UserProjectSchema])
+  userProject?: UserProjectSchema[];
 }

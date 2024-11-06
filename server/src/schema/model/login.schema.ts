@@ -1,18 +1,18 @@
 import { Field, InputType, ObjectType } from '@nestjs/graphql';
-import { Login } from 'types/login';
+import { Login } from 'src/types/login';
 
 @ObjectType('LoginSchema')
 @InputType('LoginInputSchema')
 export class LoginResponse implements Login {
   @Field()
-  userId: string; // 사용자 ID
+  userId: string;
 
   @Field()
-  accessToken: string; // JWT 또는 다른 형태의 토큰
+  accessToken: string;
 
   @Field({ nullable: true })
-  username?: string; // 선택적으로 포함할 수 있는 사용자 이름
+  username?: string;
 
   @Field({ nullable: true })
-  email?: string; // 선택적으로 포함할 수 있는 이메일
+  email?: string;
 }

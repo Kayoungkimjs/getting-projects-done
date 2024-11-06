@@ -7,8 +7,4 @@ export interface Project {
   testType?: string;
   testName?: string;
   criteria?: string;
-  result?: number;
-  status?: number;
-  priority?: number;
-  notes?: string;
 }

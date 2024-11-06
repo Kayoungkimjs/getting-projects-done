@@ -1,5 +1,5 @@
 import { Field, InputType, ObjectType } from '@nestjs/graphql';
-import { Project } from 'types/project';
+import { Project } from 'src/types/project';
 
 @ObjectType('ProjectSchema')
 @InputType('ProjectInputSchema')
@@ -27,16 +27,4 @@ export class ProjectSchema implements Project {
 
   @Field({ nullable: true })
   criteria?: string;
-
-  @Field({ nullable: true })
-  notes?: string;
-
-  @Field({ nullable: true })
-  result?: number;
-
-  @Field({ nullable: true })
-  status?: number;
-
-  @Field({ nullable: true })
-  priority?: number;
 }
