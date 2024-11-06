@@ -11,6 +11,17 @@ type RegisterResponse {
   user: UserSchema!
 }
 
+type UserProjectSchema {
+  userProjectId: Float!
+  notes: String
+  result: Float
+  status: Float
+  priority: Float
+  createdAt: String
+  updatedAt: String
+  user: UserSchema!
+}
+
 type UserSchema {
   uid: Float!
   userId: String!
@@ -19,6 +30,7 @@ type UserSchema {
   createdAt: String
   updatedAt: String
   register: [RegisterResponse!]!
+  userProject: [UserProjectSchema!]!
 }
 
 type LoginSchema {
@@ -37,10 +49,6 @@ type ProjectSchema {
   testType: String
   testName: String
   criteria: String
-  notes: String
-  result: Float
-  status: Float
-  priority: Float
 }
 
 type GetAllProjectsResponseSchema {
@@ -75,6 +83,17 @@ input RegisterInputSchema {
   user: UserInputSchema!
 }
 
+input UserProjectInputSchema {
+  userProjectId: Float!
+  notes: String
+  result: Float
+  status: Float
+  priority: Float
+  createdAt: String
+  updatedAt: String
+  user: UserInputSchema!
+}
+
 input UserInputSchema {
   uid: Float!
   userId: String!
@@ -83,6 +102,7 @@ input UserInputSchema {
   createdAt: String
   updatedAt: String
   register: [RegisterInputSchema!]!
+  userProject: [UserProjectInputSchema!]!
 }
 
 input LoginInputSchema {
@@ -101,10 +121,6 @@ input ProjectInputSchema {
   testType: String
   testName: String
   criteria: String
-  notes: String
-  result: Float
-  status: Float
-  priority: Float
 }
 
 type Query {

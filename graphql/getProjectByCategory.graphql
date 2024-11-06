@@ -9,10 +9,6 @@ query GetProjectByCategory($categoryId: [Float!]!) {
       testType
       testName
       criteria
-      notes
-      result
-      status
-      priority
     }
     listLength
   }
