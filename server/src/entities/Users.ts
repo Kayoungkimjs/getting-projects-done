@@ -7,6 +7,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { Register } from './Register';
+import { UserProject } from './UserProject';
 
 @Entity('USER')
 export class User {
@@ -36,4 +37,7 @@ export class User {
 
   @OneToMany(() => Register, (register) => register.user)
   register: Register[];
+
+  @OneToMany(() => UserProject, (userProject) => userProject.user)
+  userProject: UserProject[];
 }

@@ -12,6 +12,7 @@ import { ProjectModule } from './project/project.module';
 import { ProjectResolver } from './project/project.resolver';
 import { RegisterModule } from './register/register.module';
 import { RegisterResolver } from './register/register.resolver';
+import { UserProjectModule } from './userProject/userProject.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { RegisterResolver } from './register/register.resolver';
     ProjectModule,
     UserModule,
     AuthModule,
+    UserProjectModule,
     TypeOrmModule.forRoot({
       type: 'sqlite',
       database: '/Users/kim_kayoung/Desktop/project/gpd/server/gpd.db',
