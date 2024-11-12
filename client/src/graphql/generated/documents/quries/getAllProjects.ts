@@ -4,7 +4,7 @@ export const Query = gql`
   query GetAllProjects {
     getAllProjects {
       project {
-        id
+        projectId
         categoryId
         categoryKr
         categoryEn
@@ -12,10 +12,6 @@ export const Query = gql`
         testType
         testName
         criteria
-        notes
-        result
-        status
-        priority
       }
       listLength
     }

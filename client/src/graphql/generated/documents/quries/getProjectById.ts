@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const Query = gql`
-  query GetProjectByCategory($categoryId: [Float!]!) {
-    getProjectByCategory(categoryId: $categoryId) {
+  query GetProjectById($id: Float!) {
+    getProjectById(id: $id) {
       project {
         projectId
         categoryId
@@ -13,7 +13,6 @@ export const Query = gql`
         testName
         criteria
       }
-      listLength
     }
   }
 `;
