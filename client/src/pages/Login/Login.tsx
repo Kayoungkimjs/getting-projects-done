@@ -1,5 +1,8 @@
 import { useState } from "react";
-import { useLoginMutation } from "../../graphql/generated/graphql";
+import {
+  useGetRegistersByUserIdQuery,
+  useLoginMutation,
+} from "../../graphql/generated/graphql";
 import { StyledLogin } from "./style";
 import { useNavigate } from "react-router-dom";
 import { Button, Layout } from "../../components";
@@ -14,6 +17,10 @@ export const Login: React.FC = () => {
   const [userId, setUserId] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [errorInfo, setErrorInfo] = useState<boolean>(false);
+  const { data: registers, refetch } = useGetRegistersByUserIdQuery({
+    skip: !userId,
+  });
+  console.log("register", registers);
 
   const handleLogin = async () => {
     if (!validateUserId(userId) || !validatePassword(password)) {
@@ -33,7 +40,21 @@ export const Login: React.FC = () => {
         console.log("Login successful!", accessToken, userId);
 
         localStorage.setItem("token", accessToken);
-        navigate("/select");
+
+        console.log("Token stored:", localStorage.getItem("token"));
+        // refetch();
+        //  navigate("/register");
+      }
+
+      // `registers` 데이터 확인 후 페이지 이동
+      const userRegisters = registers?.getRegistersByUserId?.registers;
+
+      if (userRegisters && userRegisters.length > 0) {
+        console.log("User has registered data:", registers);
+        navigate("/register/project");
+      } else {
+        console.log("No registered data for user");
+        navigate("/register");
       }
     } catch (e) {
       console.error("Login failed", e);
