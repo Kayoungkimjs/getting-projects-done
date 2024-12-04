@@ -10,37 +10,41 @@ const fontFamilies = {
 };
 
 const fontSizes = {
-  xs: "10px",
-  sm: "12px",
-  md: "14px",
+  tag: "10px",
+  xs: "12px",
+  sm: "14px",
   base: "16px",
+  md: "20px",
   lg: "32px",
-  entry: "60px",
+  entry: "42px",
 };
 
 const lineHeights = {
-  xs: "14px",
-  sm: "16px",
-  md: "24px",
+  tag: "14px",
+  xs: "16px",
+  sm: "18px",
   base: "22px",
+  md: "32px",
   lg: "48px",
-  entry: "32px",
+  entry: "52px",
 };
 
 const letterSpacings = {
+  tag: "-0.018em",
   xs: "-0.018em",
   sm: "-0.018em",
-  md: "-0.018em",
   base: "-0.025em",
+  md: "-0.018em",
   lg: "-0.025em",
   entry: "-0.025em",
 };
 
 const colors = {
-  black: "#00000",
-  white: "#fffff",
+  black: "#000",
+  white: "#ffff",
   background: "#CFCFCE",
   border: "#ABB0B0",
+  red: "#EF5350",
 };
 
 export const gutter = "10px";
