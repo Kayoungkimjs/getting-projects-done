@@ -1,7 +1,14 @@
 import "styled-components";
 
 declare module "styled-components" {
-  export type TypographyScale = "xs" | "sm" | "md" | "base" | "lg" | "entry";
+  export type TypographyScale =
+    | "tag"
+    | "xs"
+    | "sm"
+    | "base"
+    | "md"
+    | "lg"
+    | "entry";
 
   export interface DefaultTheme {
     colors: {
@@ -9,9 +16,11 @@ declare module "styled-components" {
       white: string;
       background: string;
       border: string;
+      red: string;
     };
 
     fontSizes: {
+      tag: string;
       xs: string;
       sm: string;
       md: string;
@@ -21,6 +30,7 @@ declare module "styled-components" {
     };
 
     lineHeights: {
+      tag: string;
       xs: string;
       sm: string;
       md: string;
@@ -30,6 +40,7 @@ declare module "styled-components" {
     };
 
     letterSpacings: {
+      tag: string;
       xs: string;
       sm: string;
       md: string;
