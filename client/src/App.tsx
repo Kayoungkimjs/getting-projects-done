@@ -1,10 +1,38 @@
-import "./App.css";
+import { Route, Routes } from "react-router-dom";
+// import GpdBoard from "./pages/GpdBoard";
+import {
+  GpdBoard,
+  Greeting,
+  Login,
+  Main,
+  NameForm,
+  SelectCategoryForm,
+  // SelectProjectForm,
+} from "./pages";
+
+interface RouteConfig {
+  path: string;
+  element: React.ReactNode;
+}
 
 function App() {
+  const routes: RouteConfig[] = [
+    { path: "/", element: <Greeting /> },
+    { path: "/login", element: <Login /> },
+    { path: "/register", element: <NameForm /> },
+    { path: "/register/select", element: <SelectCategoryForm /> },
+    // { path: "/register/project", element: <SelectProjectForm /> },
+    { path: "/main/:id", element: <Main /> },
+  ];
+
   return (
-    <>
-      <h1>Vite + React</h1>
-    </>
+    <div className="app">
+      <Routes>
+        {routes.map((route, index) => (
+          <Route key={index} path={route.path} element={route.element} />
+        ))}
+      </Routes>
+    </div>
   );
 }
 
