@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { ProjectCard } from "../../components/Card";
 import {
   ProjectSchema,
-  useGetProjectByCategoryLazyQuery,
   useGetProjectByIdLazyQuery,
 } from "../../graphql/generated/graphql";
 import { StyledGpdBoard, DashBoard } from "./style";
@@ -23,18 +22,15 @@ export const GpdBoard: React.FC<GpdBoardProps> = ({
   const [registerCards, setRegisterCards] = useState<ProjectSchema[]>([]);
   const [todoCards, setTodoCards] = useState<ProjectSchema[]>([]);
   const [completedCards, setCompletedCards] = useState<ProjectSchema[]>([]);
-  const { isOpen, handleModalOpen, handleModalClose } = useModal();
+  const { isOpen, handleModalOpen } = useModal();
 
-  const [getProjectData, { data: projectData }] = useGetProjectByIdLazyQuery();
+  const [getProjectData] = useGetProjectByIdLazyQuery();
 
-  console.log(projectData);
   useEffect(() => {
     if (projectList && projectList.length > 0) {
       setRegisterCards(projectList);
     }
   }, [projectList]);
-
-  console.log("project", registerCards);
 
   // const handleYesBtnClick = (cardId: number) => {
   //   setIsFormOpen(true);
@@ -43,7 +39,6 @@ export const GpdBoard: React.FC<GpdBoardProps> = ({
   const handleYesBtnClick = (cardId: number) => {
     const card = registerCards?.find((project) => project.projectId === cardId);
     if (card) {
-      // 카드 상태를 업데이트하고 'registerCards'에서 제거, 'todoCards'에 추가
       setCompletedCards((prev) => [...prev, card]);
       setRegisterCards((prev) =>
         prev.filter((project) => project.projectId !== cardId),
@@ -56,21 +51,9 @@ export const GpdBoard: React.FC<GpdBoardProps> = ({
     handleModalOpen(cardId);
   };
 
-  // const handleNoRegisterBtnClick = (cardId: number) => {
-  //   const card = registerCards?.find((project) => project.id === cardId);
-  //   if (card) {
-  //     // 카드 상태를 업데이트하고 'todoCards'에서 제거, 'registerCards'에 추가
-  //     setTodoCards((prev) => [...prev, card]);
-  //     setRegisterCards((prev) =>
-  //       prev.filter((project) => project.id !== cardId),
-  //     );
-  //   }
-  // };
-
   const handleCompleteBtnClick = (cardId: number) => {
     const card = todoCards.find((project) => project.projectId === cardId);
     if (card) {
-      // 카드 상태를 업데이트하고 'todoCards'에서 제거, 'completedCards'에 추가
       setCompletedCards((prev) => [...prev, card]);
       setTodoCards((prev) =>
         prev.filter((project) => project.projectId !== cardId),
