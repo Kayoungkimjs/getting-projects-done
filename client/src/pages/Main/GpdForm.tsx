@@ -3,7 +3,7 @@ import { StyledGpdForm, StyledOverlay } from "./style";
 
 export const GpdForm: React.FC = () => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data: unknown) => console.log(data);
 
   return (
     <>
