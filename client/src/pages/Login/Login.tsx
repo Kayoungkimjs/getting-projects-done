@@ -17,7 +17,7 @@ export const Login: React.FC = () => {
   const [userId, setUserId] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [errorInfo, setErrorInfo] = useState<boolean>(false);
-  const { data: registers, refetch } = useGetRegistersByUserIdQuery({
+  const { data: registers } = useGetRegistersByUserIdQuery({
     skip: !userId,
   });
   console.log("register", registers);
